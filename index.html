@@ -61,22 +61,23 @@
       margin-bottom: 18px;
     }
 
-    .avatar{
-      width: 96px;
-      height: 96px;
-      border-radius: 18px;
-      background: var(--mist);
-      border: 6px solid var(--white);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      flex: 0 0 auto;
-    }
+.avatar{
+  width: 120px;      /* 96 * 1.25 = 120 */
+  height: 120px;     /* 96 * 1.25 = 120 */
+  border-radius: 22px; /* optional: scale from 18 */
+  background: var(--mist);
+  border: 8px solid var(--white); /* optional: scale from 6 */
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
 .avatar img{
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  object-position: 50% 15%; /* try 10%–35% */
-  display:block;
+  object-position: 50% 15%; /* keep your crop tweak */
+  display: block;
 }
 
     .titleBlock h1{
