@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Notion Nav</title>
 
+  <!-- FIX: remove markdown-wrapped URLs -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
@@ -141,11 +142,14 @@
       border: 1px solid rgba(255,255,255,0.20);
     }
 
+    /* FIX: force stroke/fill so icons look consistent */
     .iconBadge svg{
       width: 24px;
       height: 24px;
       display:block;
-      color: rgba(255,255,255,0.95);
+      stroke: rgba(255,255,255,0.95);
+      fill: none;
+      transform: translateY(-0.5px); /* tiny optical alignment */
     }
 
     .text{
@@ -184,10 +188,13 @@
       border: 1px solid rgba(255,255,255,0.20);
     }
 
+    /* FIX: force arrow stroke */
     .arrow svg{
       width: 18px;
       height: 18px;
-      color: rgba(255,255,255,0.95);
+      display:block;
+      stroke: rgba(255,255,255,0.95);
+      fill: none;
     }
 
     /* “About Me” is a light panel style */
@@ -199,14 +206,18 @@
       background: rgba(31,42,53,0.06);
       border: 1px solid rgba(31,42,53,0.08);
     }
-    .card.about .iconBadge svg{ color: var(--navy); }
+    .card.about .iconBadge svg{
+      stroke: var(--navy);
+    }
     .card.about .text .label{ color: var(--charcoal); }
     .card.about .text .sublabel{ color: var(--slate); }
     .card.about .arrow{
       background: rgba(31,42,53,0.06);
       border: 1px solid rgba(31,42,53,0.08);
     }
-    .card.about .arrow svg{ color: var(--slate); }
+    .card.about .arrow svg{
+      stroke: var(--slate);
+    }
 
     /* Colored cards */
     .card.burgundy{ background: var(--burgundy); }
@@ -214,37 +225,68 @@
     .card.teal{ background: var(--teal); }
     .card.mustard{ background: var(--mustard); }
 
-    .card.mustard .text .label,
-    .card.mustard .text .sublabel,
-    .card.mustard .iconBadge svg,
-    .card.mustard .arrow svg{
-      color: rgba(255,255,255,0.96);
-    }
-
-    /* Footer */
+    /* Footer (mockup-style) */
     .footer{
-      margin-top: 18px;
-      padding-top: 14px;
+      margin-top: 48px;
+      padding-top: 28px;
       border-top: 1px solid rgba(31,42,53,0.10);
       display:flex;
-      justify-content: center;
-      gap: 14px;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
     }
 
-    .footbtn{
+    .footer-icons{
+      display:flex;
+      justify-content:center;
+      gap: 26px;
+    }
+
+    .footicon{
       width: 40px;
       height: 40px;
       border-radius: 999px;
       display:grid;
       place-items:center;
-      background: rgba(31,42,53,0.06);
-      border: 1px solid rgba(31,42,53,0.08);
+      background: transparent;
+      border: none;
       text-decoration:none;
       transition: transform 160ms ease;
     }
 
-    .footbtn:hover{ transform: translateY(-1px); }
-    .footbtn svg{ width: 18px; height: 18px; color: var(--slate); }
+    .footicon:hover{ transform: translateY(-1px); }
+
+    .footicon svg{
+      width: 18px;
+      height: 18px;
+      display:block;
+      stroke: rgba(21,54,133,0.45);
+      fill: none;
+    }
+
+    .footer-meta{
+      display:flex;
+      flex-direction: column;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .footer-meta p{
+      margin: 0;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(21,54,133,0.55);
+      text-align: center;
+    }
+
+    .footer-accent{
+      height: 3px;
+      width: 44px;
+      background: var(--mustard);
+      border-radius: 999px;
+    }
   </style>
 </head>
 
@@ -252,6 +294,7 @@
   <div class="wrap">
     <div class="profile">
       <div class="avatar">
+        <!-- FIX: remove markdown-wrapped src -->
         <img
           src="https://raw.githubusercontent.com/nickarreola/notion-nav/82406098240bb937c8311d72fb623a16c2de6d31/Head%20shot%20Feb%209th.png"
           alt="Portrait"
@@ -268,9 +311,9 @@
       <a class="card about" href="#" target="_top" rel="noopener">
         <div class="left">
           <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M4 20c1.8-3.2 5-5 8-5s6.2 1.8 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke-width="2"/>
+              <path d="M4 20c1.8-3.2 5-5 8-5s6.2 1.8 8 5" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="text">
@@ -279,8 +322,8 @@
           </div>
         </div>
         <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </a>
@@ -288,9 +331,9 @@
       <a class="card burgundy" href="#" target="_top" rel="noopener">
         <div class="left">
           <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 4h10a2 2 0 0 1 2 2v14H8a2 2 0 0 0-2 2V4Z" stroke="currentColor" stroke-width="2" />
-              <path d="M6 18h12" stroke="currentColor" stroke-width="2" />
+            <svg viewBox="0 0 24 24">
+              <path d="M6 4h10a2 2 0 0 1 2 2v14H8a2 2 0 0 0-2 2V4Z" stroke-width="2"/>
+              <path d="M6 18h12" stroke-width="2"/>
             </svg>
           </div>
           <div class="text">
@@ -299,8 +342,8 @@
           </div>
         </div>
         <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </a>
@@ -308,11 +351,11 @@
       <a class="card navy" href="#" target="_top" rel="noopener">
         <div class="left">
           <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M6 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M9 17a5 5 0 1 0 6-8" stroke="currentColor" stroke-width="2"/>
-              <path d="M10 10l2-2 3 3-2 2-3-3Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M14 4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <svg viewBox="0 0 24 24">
+              <path d="M6 20h12" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 17a5 5 0 1 0 6-8" stroke-width="2"/>
+              <path d="M10 10l2-2 3 3-2 2-3-3Z" stroke-width="2"/>
+              <path d="M14 4l3 3" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="text">
@@ -321,8 +364,8 @@
           </div>
         </div>
         <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </a>
@@ -330,11 +373,11 @@
       <a class="card teal" href="#" target="_top" rel="noopener">
         <div class="left">
           <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M4 4h7v7H4V4Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M13 4h7v7h-7V4Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M4 13h7v7H4v-7Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M13 13h7v7h-7v-7Z" stroke="currentColor" stroke-width="2"/>
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h7v7H4V4Z" stroke-width="2"/>
+              <path d="M13 4h7v7h-7V4Z" stroke-width="2"/>
+              <path d="M4 13h7v7H4v-7Z" stroke-width="2"/>
+              <path d="M13 13h7v7h-7v-7Z" stroke-width="2"/>
             </svg>
           </div>
           <div class="text">
@@ -343,8 +386,8 @@
           </div>
         </div>
         <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </a>
@@ -352,9 +395,9 @@
       <a class="card mustard" href="#" target="_top" rel="noopener">
         <div class="left">
           <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M12 6c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M12 6c2-1.5 5-2 8-1v14c-3-1-6-.5-8 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <svg viewBox="0 0 24 24">
+              <path d="M12 6c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 6c2-1.5 5-2 8-1v14c-3-1-6-.5-8 1" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div class="text">
@@ -363,38 +406,46 @@
           </div>
         </div>
         <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
       </a>
     </div>
 
-    <div class="footer" aria-label="Footer links">
-      <a class="footbtn" href="#" target="_top" rel="noopener" aria-label="Share">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M16 8a3 3 0 1 0-2.8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M6 14a3 3 0 1 0 2.8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M8.8 16.3l6.4-3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          <path d="M15.2 7.3L8.8 10.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </a>
+    <footer class="footer" aria-label="Footer links">
+      <div class="footer-icons">
+        <a class="footicon" href="#" target="_top" rel="noopener" aria-label="Share">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 8a3 3 0 1 0-2.8-4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 14a3 3 0 1 0 2.8 4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8.8 16.3l6.4-3.6" stroke-width="2" stroke-linecap="round"/>
+            <path d="M15.2 7.3L8.8 10.9" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
 
-      <a class="footbtn" href="mailto:narreola@unomaha.edu" aria-label="Email">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
-          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </a>
+        <!-- FIX: proper mailto href -->
+        <a class="footicon" href="mailto:narreola@unomaha.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 6h16v12H4V6Z" stroke-width="2"/>
+            <path d="m4 7 8 6 8-6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </a>
 
-      <a class="footbtn" href="#" target="_top" rel="noopener" aria-label="Website">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke="currentColor" stroke-width="2"/>
-          <path d="M3 12h18" stroke="currentColor" stroke-width="2"/>
-          <path d="M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9Z" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </a>
-    </div>
+        <a class="footicon" href="#" target="_top" rel="noopener" aria-label="Website">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke-width="2"/>
+            <path d="M3 12h18" stroke-width="2"/>
+            <path d="M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9Z" stroke-width="2"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer-meta">
+        <p>© 2026 Nicholas Arreola • Curated Portfolio</p>
+        <div class="footer-accent"></div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
