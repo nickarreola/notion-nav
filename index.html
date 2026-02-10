@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notion Nav</title>
+  <link rel="preconnect" href="<https://fonts.googleapis.com>">
+  <link rel="preconnect" href="<https://fonts.gstatic.com>" crossorigin>
+  <link href="<https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap>" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Brand anchors */
+      --navy: #153685;
+      --teal: #15565A;
+      --burgundy: #841A30;
+      --mustard: #D49219;
+      --ivory: #F7F1E6;
+
+      /* Neutrals */
+      --mist: #EEF2F6;
+      --slate: #5B6673;
+      --charcoal: #1F2A35;
+      --white: #FFFFFF;
+
+      /* Complements */
+      --rose: #E7C2C8;
+      --lightgold: #F2D9A6;
+      --aqua: #CFE7E6;
+
+      /* Tints */
+      --navyTint: #445E9D;
+      --tealTint: #44787B;
+      --mustardTint: #E3B660;
+      --burgundyTint: #A14D5E;
+
+      /* UI */
+      --shadow: 0 10px 22px rgba(31, 42, 53, 0.10);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      background: var(--ivory);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--charcoal);
+    }
+
+    /* Keep embed-friendly width */
+    .wrap{
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 28px 20px 34px;
+    }
+
+    .profile{
+      display:flex;
+      gap: 16px;
+      align-items:center;
+      margin-bottom: 18px;
+    }
+
+    .avatar{
+      width: 88px;
+      height: 88px;
+      border-radius: 18px;
+      background: var(--mist);
+      border: 6px solid var(--white);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .avatar img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .titleBlock h1{
+      font-size: 34px;
+      line-height: 1.1;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+      font-weight: 800;
+    }
+    .titleBlock p{
+      margin:0;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .nav{
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .card{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transform: translateY(0);
+      transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+    .card:hover{
+      transform: translateY(-1px);
+      filter: saturate(1.02);
+      box-shadow: 0 14px 30px rgba(31, 42, 53, 0.14);
+    }
+
+    .left{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .iconBadge{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.20);
+    }
+
+    /* simple inline svg icons inherit currentColor */
+    .iconBadge svg{
+      width: 22px;
+      height: 22px;
+      display:block;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .text{
+      min-width: 0;
+    }
+    .text .label{
+      font-weight: 750;
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.2;
+      margin: 0 0 4px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .text .sublabel{
+      margin:0;
+      color: rgba(255,255,255,0.82);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .arrow{
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.20);
+    }
+    .arrow svg{
+      width: 18px;
+      height: 18px;
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* “About Me” is a light panel style in the mockup */
+    .card.about{
+      background: var(--mist);
+      border: 1px solid rgba(31,42,53,0.08);
+    }
+    .card.about .iconBadge{
+      background: rgba(31,42,53,0.06);
+      border: 1px solid rgba(31,42,53,0.08);
+    }
+    .card.about .iconBadge svg{ color: var(--navy); }
+    .card.about .text .label{ color: var(--charcoal); }
+    .card.about .text .sublabel{ color: var(--slate); }
+    .card.about .arrow{
+      background: rgba(31,42,53,0.06);
+      border: 1px solid rgba(31,42,53,0.08);
+    }
+    .card.about .arrow svg{ color: var(--slate); }
+
+    /* Colored cards */
+    .card.burgundy{ background: var(--burgundy); }
+    .card.navy{ background: var(--navy); }
+    .card.teal{ background: var(--teal); }
+    .card.mustard{ background: var(--mustard); }
+
+    /* Optional: better contrast on mustard */
+    .card.mustard .text .label,
+    .card.mustard .text .sublabel,
+    .card.mustard .iconBadge svg,
+    .card.mustard .arrow svg{
+      color: rgba(255,255,255,0.96);
+    }
+
+    /* Footer icons */
+    .footer{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(31,42,53,0.10);
+      display:flex;
+      justify-content: center;
+      gap: 14px;
+    }
+    .footbtn{
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(31,42,53,0.06);
+      border: 1px solid rgba(31,42,53,0.08);
+      text-decoration:none;
+      transition: transform 160ms ease;
+    }
+    .footbtn:hover{ transform: translateY(-1px); }
+    .footbtn svg{ width: 18px; height: 18px; color: var(--slate); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="profile">
+      <div class="avatar">
+        <!-- Replace with your own photo URL or a local asset like assets/avatar.jpg -->
+        <img src="<https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=240&q=80>" alt="Portrait">
+      </div>
+      <div class="titleBlock">
+        <h1>Alex Rivera</h1>
+        <p>Bridging Behavioral Science &amp; Data<br>Engineering</p>
+      </div>
+    </div>
+
+    <div class="nav">
+      <!-- Update href= to your Notion published page URLs -->
+      <a class="card about" href="#" target="_top" rel="noopener">
+        <div class="left">
+          <div class="iconBadge" aria-hidden="true">
+            <!-- user icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 20c1.8-3.2 5-5 8-5s6.2 1.8 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="text">
+            <p class="label">About Me</p>
+            <p class="sublabel">My journey and design philosophy</p>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <a class="card burgundy" href="#" target="_top" rel="noopener">
+        <div class="left">
+          <div class="iconBadge" aria-hidden="true">
+            <!-- book icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 4h10a2 2 0 0 1 2 2v14H8a2 2 0 0 0-2 2V4Z" stroke="currentColor" stroke-width="2" />
+              <path d="M6 18h12" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="text">
+            <p class="label">Teaching &amp; Pedagogy</p>
+            <p class="sublabel">Curriculum design and workshops</p>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <a class="card navy" href="#" target="_top" rel="noopener">
+        <div class="left">
+          <div class="iconBadge" aria-hidden="true">
+            <!-- microscope icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M6 20h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 17a5 5 0 1 0 6-8" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 10l2-2 3 3-2 2-3-3Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M14 4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="text">
+            <p class="label">Research &amp; Publications</p>
+            <p class="sublabel">Academic papers and whitepapers</p>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <a class="card teal" href="#" target="_top" rel="noopener">
+        <div class="left">
+          <div class="iconBadge" aria-hidden="true">
+            <!-- grid icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 4h7v7H4V4Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M13 4h7v7h-7V4Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M4 13h7v7H4v-7Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M13 13h7v7h-7v-7Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="text">
+            <p class="label">Applied Projects</p>
+            <p class="sublabel">Data pipelines and behavioral tools</p>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <a class="card mustard" href="#" target="_top" rel="noopener">
+        <div class="left">
+          <div class="iconBadge" aria-hidden="true">
+            <!-- open book icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 6c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 6c2-1.5 5-2 8-1v14c-3-1-6-.5-8 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="text">
+            <p class="label">Open Resources</p>
+            <p class="sublabel">Free templates and open-source code</p>
+          </div>
+        </div>
+        <div class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- optional footer row like the mockup -->
+    <div class="footer" aria-label="Footer links">
+      <a class="footbtn" href="#" target="_top" rel="noopener" aria-label="Share">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M16 8a3 3 0 1 0-2.8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M6 14a3 3 0 1 0 2.8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.8 16.3l6.4-3.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.2 7.3L8.8 10.9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a class="footbtn" href="mailto:you@example.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a class="footbtn" href="#" target="_top" rel="noopener" aria-label="Website">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M3 12h18" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
