@@ -1,451 +1,161 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Notion Nav</title>
+<html class="light" lang="en"><head></head><body class="text-charcoal-custom transition-colors duration-300">```html
 
-  <!-- FIX: remove markdown-wrapped URLs -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      /* Brand anchors */
-      --navy: #153685;
-      --teal: #15565A;
-      --burgundy: #841A30;
-      --mustard: #D49219;
-      --ivory: #F7F1E6;
 
-      /* Neutrals */
-      --mist: #EEF2F6;
-      --slate: #5B6673;
-      --charcoal: #1F2A35;
-      --white: #FFFFFF;
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Editorial Vertical Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --brand-ivory: #F7F1E6;
+            --brand-teal: #008080;
+            --brand-mustard: #D49219;
+            --brand-navy: #001F3F;
+            --brand-burgundy: #800020;
+            --brand-charcoal: #333333;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--brand-ivory);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D49219",
+                        "navy-custom": "#001F3F",
+                        "teal-custom": "#008080",
+                        "burgundy-custom": "#800020",
+                        "charcoal-custom": "#333333",
+                        "ivory-custom": "#F7F1E6"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
 
-      /* Complements */
-      --rose: #E7C2C8;
-      --lightgold: #F2D9A6;
-      --aqua: #CFE7E6;
 
-      /* Tints */
-      --navyTint: #445E9D;
-      --tealTint: #44787B;
-      --mustardTint: #E3B660;
-      --burgundyTint: #A14D5E;
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col items-center px-4 sm:px-10 md:px-40 py-16">
+<div class="layout-content-container flex flex-col w-full max-w-[620px] flex-1">
+<div class="flex flex-col sm:flex-row items-center gap-8 mb-16 text-left">
+<div class="flex-shrink-0">
+<div class="size-32 md:size-40 rounded-3xl border-4 border-white shadow-xl overflow-hidden ring-2 ring-navy-custom/5">
+<div class="w-full h-full bg-center bg-cover" data-alt="Alex Rivera headshot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZxXmLiQZYCPsZwSK6EFVQD4rNLlvS4VaC74Y9sJWp7Phq6zEubvSY1MldTMbCxP6YFemHt4W5XnV9VJ2j40GN-yFLZV1fARB3k4Ugq5YYFbkeKqV7ZIlIvwNhqto7Md-4sEVIWxzqeBX3aGDWNyeykKm-lHUU_siBNmQJgtjAk2-AlwsuFSkAeOu5ti8cUEFI1xNYGJ1iVjjoc7YOVnSAEkM0n3XPFiZN1pJWqdFdacF_ivpQAE-4VuNMEoEygqgZCuY70klHR0Jf");'>
+</div>
+</div>
+</div>
+<div class="flex flex-col justify-center text-center sm:text-left">
+<h1 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight text-navy-custom">Alex Rivera</h1>
+<p class="text-lg md:text-xl font-medium text-navy-custom/60 mt-1">
+                        Bridging Behavioral Science &amp; Data Engineering
+                    </p>
+</div>
+</div>
+<div class="flex flex-col gap-5 w-full">
+<a class="group flex items-center justify-between bg-white hover:bg-gray-50 p-6 rounded-2xl transition-all shadow-sm border border-black/5 active:scale-[0.99]" href="#">
+<div class="flex items-center gap-5">
+<div class="bg-navy-custom/5 rounded-xl p-3 flex items-center justify-center text-navy-custom">
+<span class="material-symbols-outlined text-2xl">person_search</span>
+</div>
+<div class="flex flex-col">
+<span class="text-navy-custom font-bold text-xl leading-none">About Me</span>
+<span class="text-charcoal-custom/60 text-sm mt-1.5 font-medium">My journey and design philosophy</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-navy-custom/30 group-hover:text-navy-custom group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between bg-burgundy-custom hover:opacity-95 p-6 rounded-2xl transition-all shadow-lg active:scale-[0.99]" href="#">
+<div class="flex items-center gap-5">
+<div class="bg-white/10 rounded-xl p-3 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">history_edu</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-xl leading-none">Teaching &amp; Pedagogy</span>
+<span class="text-white/80 text-sm mt-1.5 font-medium">Curriculum design and workshops</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between bg-navy-custom hover:opacity-95 p-6 rounded-2xl transition-all shadow-lg active:scale-[0.99]" href="#">
+<div class="flex items-center gap-5">
+<div class="bg-white/10 rounded-xl p-3 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">biotech</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-xl leading-none">Research &amp; Publications</span>
+<span class="text-white/80 text-sm mt-1.5 font-medium">Academic papers and whitepapers</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between bg-teal-custom hover:opacity-95 p-6 rounded-2xl transition-all shadow-lg active:scale-[0.99]" href="#">
+<div class="flex items-center gap-5">
+<div class="bg-white/10 rounded-xl p-3 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">account_tree</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-xl leading-none">Applied Projects</span>
+<span class="text-white/80 text-sm mt-1.5 font-medium">Data pipelines and behavioral tools</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/50 group-hover:text-white group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+<a class="group flex items-center justify-between bg-[var(--brand-mustard)] hover:brightness-95 p-6 rounded-2xl transition-all shadow-lg active:scale-[0.99]" href="#">
+<div class="flex items-center gap-5">
+<div class="bg-white/20 rounded-xl p-3 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">auto_stories</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white font-bold text-xl leading-none">Open Resources</span>
+<span class="text-white/90 text-sm mt-1.5 font-medium">Free templates and open-source code</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all">arrow_forward</span>
+</a>
+</div>
+<footer class="mt-24 mb-12 flex flex-col items-center gap-8 w-full border-t border-navy-custom/5 pt-12">
+<div class="flex justify-center gap-10">
+<a class="text-navy-custom/40 hover:text-navy-custom transition-colors transform hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">share</span>
+</a>
+<a class="text-navy-custom/40 hover:text-navy-custom transition-colors transform hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</a>
+<a class="text-navy-custom/40 hover:text-navy-custom transition-colors transform hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">public</span>
+</a>
+</div>
+<div class="flex flex-col items-center gap-3">
+<p class="text-[10px] text-navy-custom/50 uppercase tracking-[0.25em] font-bold">
+                        © 2024 Alex Rivera • Curated Portfolio
+                    </p>
+<div class="h-1 w-12 bg-[var(--brand-mustard)] rounded-full"></div>
+</div>
+</footer>
+</div>
+</div>
+</div>
 
-      /* UI */
-      --shadow: 0 10px 22px rgba(31, 42, 53, 0.10);
-      --radius: 22px;
-    }
-
-    * { box-sizing: border-box; }
-    body{
-      margin:0;
-      background: var(--ivory);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--charcoal);
-    }
-
-    /* Embed-friendly width + mockup-ish breathing room */
-    .wrap{
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 28px 18px 26px;
-    }
-
-    .profile{
-      display:flex;
-      gap: 20px;
-      align-items:center;
-      margin-bottom: 18px;
-    }
-
-    .avatar{
-      width: 120px;
-      height: 120px;
-      border-radius: 22px;
-      background: var(--mist);
-      border: 8px solid var(--white);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      flex: 0 0 auto;
-    }
-
-    .avatar img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 15%;
-      display: block;
-    }
-
-    .titleBlock h1{
-      font-size: 34px;
-      line-height: 1.1;
-      margin: 0 0 6px 0;
-      letter-spacing: -0.02em;
-      color: var(--charcoal);
-      font-weight: 800;
-    }
-
-    .titleBlock p{
-      margin:0;
-      color: var(--slate);
-      font-weight: 600;
-    }
-
-    .nav{
-      display:flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .card{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      text-decoration: none;
-      transform: translateY(0);
-      transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
-      border: 1px solid rgba(255,255,255,0.28);
-    }
-
-    .card:hover{
-      transform: translateY(-1px);
-      filter: saturate(1.02);
-      box-shadow: 0 14px 30px rgba(31, 42, 53, 0.14);
-    }
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .iconBadge{
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
-      background: rgba(255,255,255,0.16);
-      border: 1px solid rgba(255,255,255,0.20);
-    }
-
-    /* FIX: force stroke/fill so icons look consistent */
-    .iconBadge svg{
-      width: 24px;
-      height: 24px;
-      display:block;
-      stroke: rgba(255,255,255,0.95);
-      fill: none;
-      transform: translateY(-0.5px); /* tiny optical alignment */
-    }
-
-    .text{
-      min-width: 0;
-    }
-
-    .text .label{
-      font-weight: 750;
-      color: var(--white);
-      font-size: 16px;
-      line-height: 1.2;
-      margin: 0 0 4px 0;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .text .sublabel{
-      margin:0;
-      color: rgba(255,255,255,0.82);
-      font-size: 13px;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .arrow{
-      flex: 0 0 auto;
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      display:grid;
-      place-items:center;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.20);
-    }
-
-    /* FIX: force arrow stroke */
-    .arrow svg{
-      width: 18px;
-      height: 18px;
-      display:block;
-      stroke: rgba(255,255,255,0.95);
-      fill: none;
-    }
-
-    /* “About Me” is a light panel style */
-    .card.about{
-      background: var(--mist);
-      border: 1px solid rgba(31,42,53,0.08);
-    }
-    .card.about .iconBadge{
-      background: rgba(31,42,53,0.06);
-      border: 1px solid rgba(31,42,53,0.08);
-    }
-    .card.about .iconBadge svg{
-      stroke: var(--navy);
-    }
-    .card.about .text .label{ color: var(--charcoal); }
-    .card.about .text .sublabel{ color: var(--slate); }
-    .card.about .arrow{
-      background: rgba(31,42,53,0.06);
-      border: 1px solid rgba(31,42,53,0.08);
-    }
-    .card.about .arrow svg{
-      stroke: var(--slate);
-    }
-
-    /* Colored cards */
-    .card.burgundy{ background: var(--burgundy); }
-    .card.navy{ background: var(--navy); }
-    .card.teal{ background: var(--teal); }
-    .card.mustard{ background: var(--mustard); }
-
-    /* Footer (mockup-style) */
-    .footer{
-      margin-top: 48px;
-      padding-top: 28px;
-      border-top: 1px solid rgba(31,42,53,0.10);
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .footer-icons{
-      display:flex;
-      justify-content:center;
-      gap: 26px;
-    }
-
-    .footicon{
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      display:grid;
-      place-items:center;
-      background: transparent;
-      border: none;
-      text-decoration:none;
-      transition: transform 160ms ease;
-    }
-
-    .footicon:hover{ transform: translateY(-1px); }
-
-    .footicon svg{
-      width: 18px;
-      height: 18px;
-      display:block;
-      stroke: rgba(21,54,133,0.45);
-      fill: none;
-    }
-
-    .footer-meta{
-      display:flex;
-      flex-direction: column;
-      align-items:center;
-      gap: 10px;
-    }
-
-    .footer-meta p{
-      margin: 0;
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(21,54,133,0.55);
-      text-align: center;
-    }
-
-    .footer-accent{
-      height: 3px;
-      width: 44px;
-      background: var(--mustard);
-      border-radius: 999px;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="wrap">
-    <div class="profile">
-      <div class="avatar">
-        <!-- FIX: remove markdown-wrapped src -->
-        <img
-          src="https://raw.githubusercontent.com/nickarreola/notion-nav/82406098240bb937c8311d72fb623a16c2de6d31/Head%20shot%20Feb%209th.png"
-          alt="Portrait"
-        >
-      </div>
-
-      <div class="titleBlock">
-        <h1>Nicholas J. Arreola, Ph.D.</h1>
-        <p>Bridging Behavioral Science &amp; Data<br>Engineering</p>
-      </div>
-    </div>
-
-    <div class="nav">
-      <a class="card about" href="#" target="_top" rel="noopener">
-        <div class="left">
-          <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Z" stroke-width="2"/>
-              <path d="M4 20c1.8-3.2 5-5 8-5s6.2 1.8 8 5" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="text">
-            <p class="label">About Me</p>
-            <p class="sublabel">My journey and design philosophy</p>
-          </div>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-
-      <a class="card burgundy" href="#" target="_top" rel="noopener">
-        <div class="left">
-          <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M6 4h10a2 2 0 0 1 2 2v14H8a2 2 0 0 0-2 2V4Z" stroke-width="2"/>
-              <path d="M6 18h12" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="text">
-            <p class="label">Teaching &amp; Pedagogy</p>
-            <p class="sublabel">Curriculum design and workshops</p>
-          </div>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-
-      <a class="card navy" href="#" target="_top" rel="noopener">
-        <div class="left">
-          <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M6 20h12" stroke-width="2" stroke-linecap="round"/>
-              <path d="M9 17a5 5 0 1 0 6-8" stroke-width="2"/>
-              <path d="M10 10l2-2 3 3-2 2-3-3Z" stroke-width="2"/>
-              <path d="M14 4l3 3" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="text">
-            <p class="label">Research &amp; Publications</p>
-            <p class="sublabel">Academic papers and whitepapers</p>
-          </div>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-
-      <a class="card teal" href="#" target="_top" rel="noopener">
-        <div class="left">
-          <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 4h7v7H4V4Z" stroke-width="2"/>
-              <path d="M13 4h7v7h-7V4Z" stroke-width="2"/>
-              <path d="M4 13h7v7H4v-7Z" stroke-width="2"/>
-              <path d="M13 13h7v7h-7v-7Z" stroke-width="2"/>
-            </svg>
-          </div>
-          <div class="text">
-            <p class="label">Applied Projects</p>
-            <p class="sublabel">Data pipelines and behavioral tools</p>
-          </div>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-
-      <a class="card mustard" href="#" target="_top" rel="noopener">
-        <div class="left">
-          <div class="iconBadge" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 6c-2-1.5-5-2-8-1v14c3-1 6-.5 8 1" stroke-width="2" stroke-linecap="round"/>
-              <path d="M12 6c2-1.5 5-2 8-1v14c-3-1-6-.5-8 1" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="text">
-            <p class="label">Open Resources</p>
-            <p class="sublabel">Free templates and open-source code</p>
-          </div>
-        </div>
-        <div class="arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path d="M9 18l6-6-6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </a>
-    </div>
-
-    <footer class="footer" aria-label="Footer links">
-      <div class="footer-icons">
-        <a class="footicon" href="#" target="_top" rel="noopener" aria-label="Share">
-          <svg viewBox="0 0 24 24">
-            <path d="M16 8a3 3 0 1 0-2.8-4" stroke-width="2" stroke-linecap="round"/>
-            <path d="M6 14a3 3 0 1 0 2.8 4" stroke-width="2" stroke-linecap="round"/>
-            <path d="M8.8 16.3l6.4-3.6" stroke-width="2" stroke-linecap="round"/>
-            <path d="M15.2 7.3L8.8 10.9" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-
-        <!-- FIX: proper mailto href -->
-        <a class="footicon" href="mailto:narreola@unomaha.edu" aria-label="Email">
-          <svg viewBox="0 0 24 24">
-            <path d="M4 6h16v12H4V6Z" stroke-width="2"/>
-            <path d="m4 7 8 6 8-6" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-
-        <a class="footicon" href="#" target="_top" rel="noopener" aria-label="Website">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 21a9 9 0 1 0-9-9 9 9 0 0 0 9 9Z" stroke-width="2"/>
-            <path d="M3 12h18" stroke-width="2"/>
-            <path d="M12 3c2.5 2.6 4 5.7 4 9s-1.5 6.4-4 9c-2.5-2.6-4-5.7-4-9s1.5-6.4 4-9Z" stroke-width="2"/>
-          </svg>
-        </a>
-      </div>
-
-      <div class="footer-meta">
-        <p>© 2026 Nicholas Arreola • Curated Portfolio</p>
-        <div class="footer-accent"></div>
-      </div>
-    </footer>
-  </div>
 </body>
 </html>
