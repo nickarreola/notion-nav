@@ -1,12 +1,55 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Nicholas J. Arreola | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style type="text/tailwindcss">
+        :root {
+            --brand-ivory: #F7F1E6;
+            --brand-teal: #008080;
+            --brand-mustard: #D49219;
+            --brand-navy: #001F3F;
+            --brand-burgundy: #800020;
+            --brand-charcoal: #333333;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--brand-ivory);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "navy-custom": "#001F3F",
+                        "teal-custom": "#008080",
+                        "burgundy-custom": "#800020",
+                        "mustard-custom": "#D49219",
+                        "charcoal-custom": "#333333",
+                        "ivory-custom": "#F7F1E6"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
 <body class="text-charcoal-custom">
     <div class="flex min-h-screen w-full flex-col items-center px-4 py-16">
         <div class="w-full max-w-[620px]">
             
-            <div class="flex flex-col sm:flex-row items-center gap-8 mb-10 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center gap-8 mb-8 text-center sm:text-left">
                 <div class="flex-shrink-0">
                     <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl border-4 border-white shadow-xl overflow-hidden ring-2 ring-navy-custom/5">
                         <div class="w-full h-full bg-top bg-cover" 
-                             style="background-image: url('profilepic.png');">
+                             style="background-image: url('profile.png');">
                         </div>
                     </div>
                 </div>
@@ -19,17 +62,74 @@
             </div>
 
             <div class="flex flex-col gap-4">
-                </div>
+                <a href="#" class="group flex items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-black/5 hover:bg-gray-50 transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="bg-navy-custom/5 rounded-xl p-3 text-navy-custom"><span class="material-symbols-outlined">person_search</span></div>
+                        <div class="flex flex-col">
+                            <span class="font-bold text-xl text-navy-custom leading-tight">About Me</span>
+                            <span class="text-sm text-charcoal-custom/60 font-medium">My journey and design philosophy</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-navy-custom/30 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
 
-            <footer class="mt-12 text-center border-t border-navy-custom/5 pt-12">
-                <div class="flex justify-center gap-10 mb-8">
-                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer">share</span>
-                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer">mail</span>
-                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer">public</span>
+                <a href="#" class="group flex items-center justify-between bg-burgundy-custom p-6 rounded-2xl shadow-lg hover:opacity-95 transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="bg-white/10 rounded-xl p-3 text-white"><span class="material-symbols-outlined">history_edu</span></div>
+                        <div class="flex flex-col text-white">
+                            <span class="font-bold text-xl leading-tight">Teaching & Pedagogy</span>
+                            <span class="text-sm opacity-80 font-medium">Curriculum design and workshops</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/50 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+
+                <a href="#" class="group flex items-center justify-between bg-navy-custom p-6 rounded-2xl shadow-lg hover:opacity-95 transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="bg-white/10 rounded-xl p-3 text-white"><span class="material-symbols-outlined">biotech</span></div>
+                        <div class="flex flex-col text-white">
+                            <span class="font-bold text-xl leading-tight">Research & Publications</span>
+                            <span class="text-sm opacity-80 font-medium">Academic papers and whitepapers</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/50 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+
+                <a href="#" class="group flex items-center justify-between bg-teal-custom p-6 rounded-2xl shadow-lg hover:opacity-95 transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="bg-white/10 rounded-xl p-3 text-white"><span class="material-symbols-outlined">account_tree</span></div>
+                        <div class="flex flex-col text-white">
+                            <span class="font-bold text-xl leading-tight">Applied Projects</span>
+                            <span class="text-sm opacity-80 font-medium">Data pipelines and behavioral tools</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/50 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+
+                <a href="#" class="group flex items-center justify-between bg-mustard-custom p-6 rounded-2xl shadow-lg hover:brightness-95 transition-all active:scale-[0.98]">
+                    <div class="flex items-center gap-5">
+                        <div class="bg-white/20 rounded-xl p-3 text-white"><span class="material-symbols-outlined">auto_stories</span></div>
+                        <div class="flex flex-col text-white">
+                            <span class="font-bold text-xl leading-tight">Open Resources</span>
+                            <span class="text-sm opacity-90 font-medium">Free templates and open-source code</span>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-white/60 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+
+            <footer class="mt-10 text-center border-t border-navy-custom/5 pt-10">
+                <div class="flex justify-center gap-10 mb-6">
+                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer transition-colors">share</span>
+                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer transition-colors">mail</span>
+                    <span class="material-symbols-outlined text-navy-custom/40 hover:text-navy-custom cursor-pointer transition-colors">public</span>
                 </div>
-                <p class="text-[10px] text-navy-custom/50 uppercase tracking-[0.25em] font-bold">© 2026 Nicholas J. Arreola • Curated Portfolio</p>
+                <p class="text-[10px] text-navy-custom/50 uppercase tracking-[0.25em] font-bold">
+                    © 2026 Nicholas J. Arreola • Curated Portfolio
+                </p>
                 <div class="h-1 w-12 bg-mustard-custom mx-auto mt-3 rounded-full"></div>
             </footer>
         </div>
     </div>
 </body>
+</html>
